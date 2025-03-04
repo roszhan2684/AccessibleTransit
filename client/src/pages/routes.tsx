@@ -6,9 +6,12 @@ import { Input } from "@/components/ui/input";
 import { mockRoutes } from "@/lib/mockData";
 import { Button } from "@/components/ui/button";
 import { Search, Filter } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Routes() {
   const [search, setSearch] = useState("");
+  const [selectedRoute, setSelectedRoute] = useState<Route | null>(null);
+  const { toast } = useToast();
   const [filters, setFilters] = useState({
     wheelchair: false,
     visual: false,
@@ -31,9 +34,26 @@ export default function Routes() {
     return matchesSearch && matchesFilters;
   });
 
+  const handleRouteSelect = (route: Route) => {
+    setSelectedRoute(route);
+    toast({
+      title: "Route Selected",
+      description: `You've selected the route from ${route.startLocation} to ${route.endLocation}. Your journey is being prepared.`,
+      variant: "default",
+    });
+  };
+
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8">Find Accessible Routes</h1>
+      <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 p-8 text-white mb-8">
+        <div className="absolute inset-0 bg-grid-white/5" />
+        <div className="relative">
+          <h1 className="text-3xl font-bold mb-4">Find Accessible Routes</h1>
+          <p className="text-lg opacity-90">
+            Discover routes that match your accessibility needs, powered by our synergy squad community.
+          </p>
+        </div>
+      </div>
 
       <div className="flex gap-4 mb-8">
         <div className="flex-1 relative">
@@ -49,6 +69,7 @@ export default function Routes() {
         <Button
           variant={filters.wheelchair ? "secondary" : "outline"}
           onClick={() => setFilters(f => ({ ...f, wheelchair: !f.wheelchair }))}
+          className="group transition-colors duration-300"
         >
           Wheelchair Access
         </Button>
@@ -56,6 +77,7 @@ export default function Routes() {
         <Button
           variant={filters.visual ? "secondary" : "outline"}
           onClick={() => setFilters(f => ({ ...f, visual: !f.visual }))}
+          className="group transition-colors duration-300"
         >
           Visual Aids
         </Button>
@@ -63,6 +85,7 @@ export default function Routes() {
         <Button
           variant={filters.audio ? "secondary" : "outline"}
           onClick={() => setFilters(f => ({ ...f, audio: !f.audio }))}
+          className="group transition-colors duration-300"
         >
           Audio Announcements
         </Button>
@@ -73,10 +96,8 @@ export default function Routes() {
           <RouteCard
             key={route.id}
             route={route}
-            onSelect={() => {
-              // Handle route selection
-              console.log("Selected route:", route);
-            }}
+            isSelected={selectedRoute?.id === route.id}
+            onSelect={() => handleRouteSelect(route)}
           />
         ))}
       </div>

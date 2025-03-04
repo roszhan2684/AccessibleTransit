@@ -3,15 +3,21 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Accessibility, Eye, Volume2, ArrowRight } from "lucide-react";
 import { AccessibilityRating } from "../accessibility/AccessibilityRating";
+import { cn } from "@/lib/utils";
 
 interface RouteCardProps {
   route: Route;
+  isSelected?: boolean;
   onSelect: (route: Route) => void;
 }
 
-export function RouteCard({ route, onSelect }: RouteCardProps) {
+export function RouteCard({ route, isSelected, onSelect }: RouteCardProps) {
   return (
-    <Card className="w-full group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-background to-muted/20">
+    <Card className={cn(
+      "w-full group hover:shadow-xl transition-all duration-300 hover:-translate-y-1",
+      "bg-gradient-to-br from-background to-muted/20",
+      isSelected && "ring-2 ring-primary shadow-lg"
+    )}>
       <CardHeader>
         <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
           {route.startLocation} → {route.endLocation}
@@ -50,10 +56,13 @@ export function RouteCard({ route, onSelect }: RouteCardProps) {
 
       <CardFooter>
         <Button 
-          className="w-full group/button"
+          className={cn(
+            "w-full group/button",
+            isSelected && "bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 hover:from-violet-600 hover:via-purple-600 hover:to-pink-600"
+          )}
           onClick={() => onSelect(route)}
         >
-          Select Route
+          {isSelected ? "Selected" : "Select Route"}
           <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
         </Button>
       </CardFooter>
