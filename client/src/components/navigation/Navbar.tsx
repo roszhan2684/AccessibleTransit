@@ -6,40 +6,54 @@ export function Navbar() {
   const [location] = useLocation();
 
   return (
-    <nav className="bg-primary text-primary-foreground p-4">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b">
+      <div className="container mx-auto flex items-center justify-between h-16">
         <Link href="/">
-          <a className="text-2xl font-bold flex items-center gap-2">
-            <Bus className="h-6 w-6" />
-            TransitEase
+          <a className="text-2xl font-bold flex items-center gap-2 hover:text-primary transition-colors">
+            <Bus className="h-6 w-6 animate-bounce" />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
+              TransitEase
+            </span>
           </a>
         </Link>
-        
-        <div className="flex gap-4">
+
+        <div className="flex gap-2">
           <Link href="/">
-            <Button variant={location === "/" ? "secondary" : "ghost"}>
-              <Home className="mr-2 h-4 w-4" />
+            <Button 
+              variant={location === "/" ? "secondary" : "ghost"}
+              className="group transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+            >
+              <Home className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
               Home
             </Button>
           </Link>
-          
+
           <Link href="/routes">
-            <Button variant={location === "/routes" ? "secondary" : "ghost"}>
-              <Bus className="mr-2 h-4 w-4" />
+            <Button 
+              variant={location === "/routes" ? "secondary" : "ghost"}
+              className="group transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+            >
+              <Bus className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               Routes
             </Button>
           </Link>
-          
+
           <Link href="/emergency">
-            <Button variant={location === "/emergency" ? "secondary" : "ghost"}>
-              <Phone className="mr-2 h-4 w-4" />
+            <Button 
+              variant={location === "/emergency" ? "secondary" : "ghost"}
+              className="group transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+            >
+              <Phone className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
               Emergency
             </Button>
           </Link>
-          
+
           <Link href="/profile">
-            <Button variant={location === "/profile" ? "secondary" : "ghost"}>
-              <User className="mr-2 h-4 w-4" />
+            <Button 
+              variant={location === "/profile" ? "secondary" : "ghost"}
+              className="group transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+            >
+              <User className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
               Profile
             </Button>
           </Link>
