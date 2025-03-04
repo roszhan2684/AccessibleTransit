@@ -27,7 +27,7 @@ export class MemStorage implements IStorage {
       username: "demo_user",
       password: "password",
       credits: 75,
-      emergencyContact: "John Doe",
+      emergencyContact: "Team Synergy Squad Support",
       emergencyPhone: "555-0123"
     });
   }

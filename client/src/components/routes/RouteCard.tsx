@@ -58,7 +58,7 @@ export function RouteCard({ route, isSelected, onSelect }: RouteCardProps) {
         <Button 
           className={cn(
             "w-full group/button",
-            isSelected && "bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 hover:from-violet-600 hover:via-purple-600 hover:to-pink-600"
+            isSelected && "bg-gradient-to-r from-red-600 via-yellow-500 to-black hover:from-red-700 hover:via-yellow-600 hover:to-gray-900"
           )}
           onClick={() => onSelect(route)}
         >

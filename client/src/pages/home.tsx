@@ -6,7 +6,7 @@ import { Users, Heart, Shield, ArrowRight, Bus } from "lucide-react";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-primary/90 via-primary to-primary-foreground/20 py-32 text-primary-foreground overflow-hidden">
+      <section className="relative bg-gradient-to-br from-red-600 via-yellow-500 to-black py-32 text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/5" />
         <div className="container mx-auto text-center relative">
           <h1 className="text-5xl font-bold mb-6 animate-fade-in">

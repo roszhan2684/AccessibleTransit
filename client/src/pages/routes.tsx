@@ -45,7 +45,7 @@ export default function Routes() {
 
   return (
     <div className="container mx-auto py-8">
-      <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 p-8 text-white mb-8">
+      <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-red-600 via-yellow-500 to-black p-8 text-white mb-8">
         <div className="absolute inset-0 bg-grid-white/5" />
         <div className="relative">
           <h1 className="text-3xl font-bold mb-4">Find Accessible Routes</h1>
