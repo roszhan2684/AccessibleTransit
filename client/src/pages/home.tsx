@@ -1,7 +1,7 @@
 import { TRANSIT_IMAGES } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Bus, Heart, Shield, ArrowRight } from "lucide-react";
+import { Users, Heart, Shield, ArrowRight, Bus } from "lucide-react";
 
 export default function Home() {
   return (
@@ -10,16 +10,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-grid-white/5" />
         <div className="container mx-auto text-center relative">
           <h1 className="text-5xl font-bold mb-6 animate-fade-in">
-            Accessible Transit for Everyone
+            Team Synergy Squad
           </h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Find and navigate accessible public transportation routes with ease.
-            We're committed to making transit accessible for all.
+            Together we make transit accessible for everyone. Join our community
+            of riders, drivers, and supporters working in perfect harmony.
           </p>
           <Link href="/routes">
             <Button size="lg" variant="secondary" className="group">
-              <Bus className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              Find Accessible Routes
+              <Users className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              Join Our Squad
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
@@ -31,33 +31,33 @@ export default function Home() {
           <div className="bg-card p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
             <Bus className="h-12 w-12 mx-auto mb-6 text-primary animate-pulse" />
             <h2 className="text-2xl font-semibold mb-4 text-center">
-              Accessible Routes
+              Squad Routes
             </h2>
             <p className="text-muted-foreground text-center">
-              Find transit routes with wheelchair access, visual aids, and audio announcements.
-              Plan your journey with confidence.
+              Our team ensures every route is accessible and comfortable.
+              Travel with confidence, supported by our community.
             </p>
           </div>
 
           <div className="bg-card p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
             <Heart className="h-12 w-12 mx-auto mb-6 text-primary animate-pulse" />
             <h2 className="text-2xl font-semibold mb-4 text-center">
-              Ride Credits
+              Team Rewards
             </h2>
             <p className="text-muted-foreground text-center">
-              Earn free ride credits and rewards for using accessible transit options.
-              Travel more, pay less.
+              Earn credits together! The more we help each other,
+              the more rewards we all receive. Unity in motion.
             </p>
           </div>
 
           <div className="bg-card p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
             <Shield className="h-12 w-12 mx-auto mb-6 text-primary animate-pulse" />
             <h2 className="text-2xl font-semibold mb-4 text-center">
-              Emergency Support
+              Squad Support
             </h2>
             <p className="text-muted-foreground text-center">
-              24/7 emergency contact system for peace of mind during your journey.
-              Help is always one tap away.
+              Our team has your back 24/7. Emergency assistance,
+              friendly support, and community care all in one.
             </p>
           </div>
         </div>

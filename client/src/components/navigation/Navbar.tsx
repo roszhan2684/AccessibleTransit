@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { User, Bus, Phone, Home } from "lucide-react";
+import { Users, Bus, Phone, Home } from "lucide-react";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -10,9 +10,9 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between h-16">
         <Link href="/">
           <a className="text-2xl font-bold flex items-center gap-2 hover:text-primary transition-colors">
-            <Bus className="h-6 w-6 animate-bounce" />
+            <Users className="h-6 w-6 animate-bounce" />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-              TransitEase
+              Synergy Squad
             </span>
           </a>
         </Link>
@@ -53,8 +53,8 @@ export function Navbar() {
               variant={location === "/profile" ? "secondary" : "ghost"}
               className="group transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
             >
-              <User className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-              Profile
+              <Users className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+              Team
             </Button>
           </Link>
         </div>
