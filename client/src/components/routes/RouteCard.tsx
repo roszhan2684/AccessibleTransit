@@ -1,8 +1,10 @@
 import type { Route } from "@shared/schema";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Accessibility, Eye, Volume2, ArrowRight } from "lucide-react";
+import { Accessibility, Eye, Volume2, ArrowRight, Map } from "lucide-react";
 import { AccessibilityRating } from "../accessibility/AccessibilityRating";
+import { StreetViewPreview } from "./StreetViewPreview";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface RouteCardProps {
@@ -12,6 +14,8 @@ interface RouteCardProps {
 }
 
 export function RouteCard({ route, isSelected, onSelect }: RouteCardProps) {
+  const [showPreview, setShowPreview] = useState(false);
+
   return (
     <Card className={cn(
       "w-full group hover:shadow-xl transition-all duration-300 hover:-translate-y-1",
@@ -52,6 +56,25 @@ export function RouteCard({ route, isSelected, onSelect }: RouteCardProps) {
         </div>
 
         <AccessibilityRating rating={route.rating} />
+
+        {isSelected && (
+          <div className="mt-6">
+            <Button
+              variant="outline"
+              className="w-full mb-4"
+              onClick={() => setShowPreview(!showPreview)}
+            >
+              <Map className="mr-2 h-4 w-4" />
+              {showPreview ? "Hide Preview" : "Show 3D Preview"}
+            </Button>
+
+            {showPreview && (
+              <div className="mt-4 animate-fade-in">
+                <StreetViewPreview route={route} />
+              </div>
+            )}
+          </div>
+        )}
       </CardContent>
 
       <CardFooter>
